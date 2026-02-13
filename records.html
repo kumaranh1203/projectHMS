@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="patient-bg">
+    <div class="container">
+        <h2>Medical Records</h2>
+
+        <form method="POST">
+            <input name="patient" placeholder="Patient Name" required>
+            <input name="diagnosis" placeholder="Diagnosis" required>
+            <input name="treatment" placeholder="Treatment" required>
+            <button>Add Record</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>ID</th><th>Patient</th><th>Diagnosis</th><th>Treatment</th>
+            </tr>
+            {% for d in data %}
+            <tr>
+                <td>{{ d[0] }}</td>
+                <td>{{ d[1] }}</td>
+                <td>{{ d[2] }}</td>
+                <td>{{ d[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a class="btn" href="/">Home</a>
+    </div>
+</body>
+</html>
